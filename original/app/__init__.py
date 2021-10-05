@@ -9,7 +9,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 db = SQLAlchemy(app)
 
-# Used for demonstration purposes - DO NOT USE IN PRODUCTION
+# The secret key here is used for demonstration purposes - DO NOT USE IN PRODUCTION
 app.config['SECRET_KEY'] = 'this-is-a-secret' 
 
 from app import routes
@@ -22,6 +22,7 @@ def init_db():
     db.drop_all()
     db.create_all()
 
+    # Create some records for the different genres
     fantasy = Genre(
         name = 'Fantasy'
     )
@@ -37,6 +38,7 @@ def init_db():
     )
     db.session.add(research)
 
+    # Create some records for the different books
     hobbit = Book(
         title = 'The Hobbit',
         author = 'J.R.R Tolkien',
@@ -56,5 +58,3 @@ def init_db():
     )
 
     db.session.commit()
-
-
