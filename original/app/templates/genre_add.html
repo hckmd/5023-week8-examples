@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add genre</h2>
+<form method='post'>
+    {{ form.csrf_token }}
+
+    {{ form.name.label }} <br>
+    {{ form.name }} <br><br>
+
+    {{ form.submit }}
+</form>
+{% endblock %}
+
