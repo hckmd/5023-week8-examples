@@ -21,7 +21,7 @@
             <td>{{ book.author }}</td>
             <td>{{ book.genre.name }}</td>
             <td>
-                <a href="{{ url_for('book_delete', id=book.id) }}">
+                <a class="btn btn-warning" href="{{ url_for('book_delete', id=book.id) }}">
                     Delete
                 </a>
             </td>
