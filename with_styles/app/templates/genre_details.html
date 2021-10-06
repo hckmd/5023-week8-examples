@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ genre.name }}</h2>
+<h3>Books</h3>
+{% if genre.books | count > 0 %}
+<table>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in genre.books %}
+            <tr>
+                <td>
+                    <a href="{{ url_for('book_details', id=book.id) }}">
+                        {{ book.title }}
+                    </a>
+                </td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.genre.name }}</td>
+                <td>
+                    <a href="{{ url_for('book_delete', id=book.id) }}">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</table>
+{% else %}
+<p>There are no books that belong to this genre.</p>
+{% endif %}
+<br>
+<a href="{{ url_for('genre_edit', id = genre.id) }}">Edit genre</a>
+{% endblock %}

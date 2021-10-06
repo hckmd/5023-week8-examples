@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ title }} - Book collection</title>
+    </head>
+    <body>
+        <h1>Book collection</h1>
+        <a href="{{ url_for('book_list') }}">Books</a>
+        <a href="{{ url_for('genre_list') }}">Genres</a>
+        <hr>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
