@@ -4,16 +4,20 @@
 <form method='POST'>
     {{ form.csrf_token }}
 
-    {{ form.title.label }}<br>
-    {{ form.title }}<br>
+    <div class="col-3">
+        {{ form.title.label(class='form-label') }}
+        {{ form.title(class='form-control') }}
+    </div>
+    <div class="col-3">
+        {{ form.author.label(class='form-label') }}
+        {{ form.author(class='form-control') }}
+    </div>
+    <div class="col-3">
+        {{ form.genre_id.label(class='form-label') }}
+        {{ form.genre_id(class='form-select') }}
+    </div>
 
-    {{ form.author.label }}<br>
-    {{ form.author }}<br>
-
-    {{ form.genre_id.label }}<br>
-    {{ form.genre_id }}<br><br>
-
-    {{ form.submit }}
+    {{ form.submit(class='btn btn-primary my-2') }}
 </form>
 {% endblock %}
 
